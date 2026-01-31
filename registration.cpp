@@ -8,6 +8,7 @@ void User::SaveUser(const string& n, const string& p) {
 	password = p;
 	name = n;
 }
+
 void User::registration() {
 
 	string inputName;

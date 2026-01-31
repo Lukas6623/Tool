@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <string>
 #include "registration.h"
+#include <cstdlib>
+#include "help.h"
 
 using namespace std;
 
@@ -8,22 +10,28 @@ int main()
 {
     setlocale(LC_ALL, "RU");
     User u;
-    
+
     while (true) {
-        int a;
+        string cmd;
 
-        cout << "< ";
-        cin >> a;
+        cout << "guest < ";
 
-        switch (a) {
-        case 1:
+        getline(cin, cmd);
+
+        if (cmd == "- reg") {
             cout << "Registration" << endl;
-            cin.ignore();
             u.registration();
-            break;
-        case 0:
-            return 0;
         }
+        else if (cmd == "- os") {
+            system("systeminfo | findstr /B /C:\"OS Name\" /C:\"OS Version\"");
+        }
+        else if (cmd == "- help")
+        {
+            help();
+        }
+        else if (cmd == "exit") {
+            break;
+        }
+
     }
-    return 0;
 }
